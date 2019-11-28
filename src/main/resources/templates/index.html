@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
+    <base th:href="|${#request.getContextPath()}/resources/|">
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
@@ -8,7 +9,7 @@
     <h1>学生管理平台</h1>
 
     <!--请求有变量用th:href 没有变量直接写href=-->
-    <a href="/stu/list">学生列表</a>
-    <a>添加学生</a>
+    <a th:href="|${#request.getContextPath()}/stu/list|">学生列表</a>
+    <a th:href="|${#request.getContextPath()}/stu/add|">添加学生</a>
 </body>
 </html>

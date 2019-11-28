@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
+    <!--有项目名称${#request.getContextPath()},无项目名称可以不用写-->
+    <!--|${#request.getContextPath()}/resources/| 资源一般放在resources里面这里这样配方便导入资源-->
+    <base th:href="|${#request.getContextPath()}/resources/|">
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
@@ -18,8 +21,9 @@
             <td th:text="${stu.id}">学生ID</td>
             <td th:text="${stu.name}">姓名</td>
             <td th:text="${stu.age}">年龄</td>
-            <td th:text="${stu.birthday}">生日</td>
-            <td th:text="${stu.id}">操作</td>
+            <td th:text="${#dates.format(stu.birthday,'yyyy-MM-dd')}">生日</td>
+            <!--防止项目有名称路径前面加上${#request.getContextPath()},无项目名称可以不用写-->
+            <td ><a th:href="|${#request.getContextPath()}/stu/del/${stu.id}|">删除</a></td>
         </tr>
     </table>
 </body>
