@@ -3,7 +3,7 @@ package com.qf.springboot_student_dome;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = "com.qf")
 public class SpringbootStudentDomeApplication {
 
     public static void main(String[] args) {
