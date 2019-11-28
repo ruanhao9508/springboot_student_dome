@@ -50,4 +50,22 @@ public class StuController {
         stuService.save(student);
         return "redirect:/stu/list";
     }
+
+    @RequestMapping("/update/{id}")
+    public String update(@PathVariable Integer id,Model madel){
+        Student student = stuService.getById(id);
+        madel.addAttribute("student",student);
+        return "update";
+    }
+
+    @RequestMapping("/updateSub")
+    public String updateSub(Student student,String birthday1) throws ParseException {
+        SimpleDateFormat dateFormat=new SimpleDateFormat("yyyy-MM-dd");
+        Date date=dateFormat.parse(birthday1);
+        student.setBirthday(date);
+//        stuService.updateById(student);
+        //TableId注解存在更新,否则插入
+        stuService.saveOrUpdate(student);
+        return "redirect:/stu/list";
+    }
 }

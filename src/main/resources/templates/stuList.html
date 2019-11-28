@@ -23,7 +23,10 @@
             <td th:text="${stu.age}">年龄</td>
             <td th:text="${#dates.format(stu.birthday,'yyyy-MM-dd')}">生日</td>
             <!--防止项目有名称路径前面加上${#request.getContextPath()},无项目名称可以不用写-->
-            <td ><a th:href="|${#request.getContextPath()}/stu/del/${stu.id}|">删除</a></td>
+            <td >
+                <a th:href="|${#request.getContextPath()}/stu/del/${stu.id}|">删除</a>
+                <a th:href="|${#request.getContextPath()}/stu/update/${stu.id}|">修改</a>
+            </td>
         </tr>
     </table>
 </body>
